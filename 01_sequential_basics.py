@@ -28,3 +28,36 @@ model.summary()
 model.compile(optimizer='adam', loss='mean_squared_error',metrics=['mae'])
               
 print("model compiled successfully")
+
+# Sample housing data
+# Columns: bedrooms, bathrooms, square footage
+X_train = np.array([
+    [0.25, 0.20, 0.30],
+    [0.40, 0.35, 0.50],
+    [0.60, 0.55, 0.70],
+    [0.80, 0.75, 0.90],
+])
+
+# Target prices in thousands
+y_train = np.array([200, 300, 400, 500])
+
+X_test = np.array([
+    [0.50, 0.50, 0.42],
+    [0.30, 0.25, 0.35],
+])
+
+y_test = np.array([350, 250])
+
+print("Training and test data created")
+
+# Train the model
+history = model.fit(
+    X_train,
+    y_train,
+    epochs=100,
+    batch_size=2,
+    verbose=1,
+    validation_data=(X_test, y_test)
+)
+
+print("Model training complete")
