@@ -20,3 +20,11 @@ print("hidden layer added")
 model.add(Dense(units=1))
 
 print("output layer added")
+
+#display the model architecture summary
+model.summary()
+
+#compile the neural network model
+model.compile(optimizer='adam', loss='mean_squared_error',metrics=['mae'])
+              
+print("model compiled successfully")
